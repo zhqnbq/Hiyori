@@ -7,7 +7,6 @@
 """
 import os
 import json
-
 from nonebot.log import logger
 
 
@@ -67,3 +66,17 @@ def JsonFileExist(Path: str, initContent: dict | str | list = None, indent: int 
                 logInfo = f"文件 {Path} 不存在，已创建"
             logger.info(logInfo)
         return False
+
+
+def getFileInfo(path: str):
+    """获取文件全部信息"""
+
+    if not os.path.exists(path):
+        raise FileNotFoundError()
+    else:
+        return os.stat(path)
+
+
+if __name__ == '__main__':
+    # id = getFileID("Data/Utils/File/File2")
+    print(id)
